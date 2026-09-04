@@ -3,11 +3,14 @@ print("     PASSWORD SECURITY ANALYZER")
 print("=" * 50)
 
 score = 0
+recommendations = []
 
 password = input("Enter the password to analyze : ")
 
 print("\nPassword Received.")
 print("Password length", len(password))
+
+print()
 
 #in here checking for any uppercase letters
 has_uppercase = any(char.isupper() for char in password)
@@ -25,6 +28,8 @@ if len(password) >= 12:
     print("Your password is Good")
 else:
     print("Your password is short")
+
+print()
 
 #scoring
 if has_uppercase:
@@ -44,7 +49,9 @@ if len(password) >= 12:
 
 print("Security Score : ", score,"/5")
 
-#strength level
+print()
+
+#Strength level
 if score == 5:
     print("Password strength : STRONG")
 
@@ -53,3 +60,28 @@ elif score == 3 or score == 4:
 
 else:
     print("Password strength : WEAK")
+
+print()
+
+#Recommendations
+
+if not has_uppercase:
+    recommendations.append("Add at least one uppercase letter.")
+
+if not has_lowercase:
+    recommendations.append("Add at least one lowercase letter.")
+
+if not has_numbers:
+    recommendations.append("Add at least one number.")
+
+if not has_special:
+    recommendations.append("Add at least one special character.")
+
+if len(password) < 12:
+    recommendations.append("Add at least 12 characters.")
+
+if len(recommendations) > 0:
+    print("Recommendations :")
+
+    for recommendation in recommendations:
+        print("- ",recommendation)
