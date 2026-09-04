@@ -7,6 +7,10 @@ recommendations = []
 
 password = input("Enter the password to analyze : ")
 
+#comparing common passwords
+common_passwords = ["password", "123456", "qwerty", "admin", "password123!"]
+is_common = password.lower() in common_passwords
+
 print("\nPassword Received.")
 print("Password length", len(password))
 
@@ -52,7 +56,10 @@ print("Security Score : ", score,"/5")
 print()
 
 #Strength level
-if score == 5:
+if is_common:
+    print("Password strength : WEAK")
+
+elif score == 5:
     print("Password strength : STRONG")
 
 elif score == 3 or score == 4:
@@ -79,6 +86,9 @@ if not has_special:
 
 if len(password) < 12:
     recommendations.append("Add at least 12 characters.")
+
+if is_common:
+    recommendations.append("Avoid using common passwords.")
 
 if len(recommendations) > 0:
     print("Recommendations :")
