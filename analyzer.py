@@ -1,6 +1,6 @@
 #simple function experiment
 def analyze_password(password):
-    print("Analyzing:", password)
+    print("Analyzing Password...")
 
     #comparing common passwords
     common_passwords = ["password", "123456", "qwerty", "admin", "password123!"]
@@ -56,16 +56,18 @@ def analyze_password(password):
 
     #Strength level
     if is_common:
-        print("Password strength : WEAK")
+        strength = "WEAK"
 
     elif score == 5:
-        print("Password strength : STRONG")
+        strength = "STRONG"
 
     elif score == 3 or score == 4:
-        print("Password strength : MEDIUM")
+        strength = "MEDIUM"
 
     else:
-        print("Password strength : WEAK")
+        strength = "WEAK"
+
+    print("Password strength :", strength)
 
     print()
 
@@ -95,5 +97,12 @@ def analyze_password(password):
         for recommendation in recommendations:
             print("- ",recommendation)
 
-print()
+    print()
 
+    result = {
+    "score": score,
+    "strength": strength,
+    "recommendations": recommendations
+    }
+
+    return result

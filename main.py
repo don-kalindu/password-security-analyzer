@@ -6,5 +6,5 @@ print("     PASSWORD SECURITY ANALYZER")
 print("=" * 50)
 
 password = getpass.getpass("Enter the password to analyze : ")
-analyze_password(password)
+password_score = analyze_password(password)
 
