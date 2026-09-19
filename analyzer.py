@@ -1,9 +1,23 @@
+from pathlib import Path
+
+
+#loading common passwords to analyze
+def load_common_passwords():
+    base_dir = Path(__file__).parent
+    password_file = base_dir / "common_passwords.txt"
+
+    with open(password_file, "r") as file:
+        content = file.read()
+        common_passwords = content.splitlines()
+
+    return common_passwords
+
 #simple function experiment
 def analyze_password(password):
     print("Analyzing Password...")
 
     #comparing common passwords
-    common_passwords = ["password", "123456", "qwerty", "admin", "password123!"]
+    common_passwords = load_common_passwords()
     is_common = password.lower() in common_passwords
 
     print("\nPassword Received.")
