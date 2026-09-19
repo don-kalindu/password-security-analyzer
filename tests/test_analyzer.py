@@ -20,6 +20,12 @@ def test_strong_password():
     assert result["strength"] == "STRONG"
     assert result["recommendations"] == []
 
+    assert result["Password_length"]
+    assert result["Contains uppercase"]
+    assert result["Contains lowercase"]
+    assert result["Contains Numbers"]
+    assert result["Contains Special"]
+
 def test_external_dataset_password():
     result = analyze_password("dragon")
     assert result["strength"] == "WEAK"
