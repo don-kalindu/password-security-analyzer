@@ -9,8 +9,16 @@ def load_common_passwords():
     with open(password_file, "r") as file:
         content = file.read()
         common_passwords = content.splitlines()
+    
+    #cleaning common_password list and add that into clean_passwrdds list
+    clean_passwords = []
 
-    return common_passwords
+    for common_password in common_passwords:
+        common_passwords = common_password.strip().lower()
+        if common_password != "":
+            clean_passwords.append(common_password)
+
+    return clean_passwords
 
 #simple function experiment
 def analyze_password(password):

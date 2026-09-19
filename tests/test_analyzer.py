@@ -1,4 +1,4 @@
-from analyzer import analyze_password
+from analyzer import analyze_password, load_common_passwords
 
 def test_medium_password():
     result = analyze_password("Hello123!")
@@ -20,8 +20,13 @@ def test_strong_password():
     assert result["strength"] == "STRONG"
     assert result["recommendations"] == []
 
-def test_common_password():
-    result = analyze_password("Password123!")
-    assert result["score"] == 5
+def test_external_dataset_password():
+    result = analyze_password("dragon")
     assert result["strength"] == "WEAK"
     assert "Avoid using common passwords." in result["recommendations"]
+
+def test_load_common_passwords():
+    passwords = load_common_passwords()
+    assert len(passwords) == 999
+    assert "dragon" in passwords
+    assert "" not in passwords
