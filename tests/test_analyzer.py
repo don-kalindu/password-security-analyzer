@@ -36,3 +36,19 @@ def test_load_common_passwords():
     assert len(passwords) == 999
     assert "dragon" in passwords
     assert "" not in passwords
+
+def test_password_length_boundary():
+    result = analyze_password("CyberDra@003")
+    assert result["Password_length"] == 12
+    assert result["score"] == 5
+    assert "Add at least 12 characters." not in result["recommendations"]
+
+def test_password_below_length_boundary():
+    result = analyze_password("CyberDra@03")
+    assert result["Password_length"] == 11
+    assert "Add at least 12 characters." in result["recommendations"]
+
+def test_password_above_length_boundary():
+    result = analyze_password("CyberDra@0034")
+    assert result["Password_length"] == 13
+    assert "Add at least 12 characters." not in result["recommendations"]
