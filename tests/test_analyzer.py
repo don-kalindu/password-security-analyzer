@@ -20,7 +20,7 @@ def test_strong_password():
     assert result["strength"] == "STRONG"
     assert result["recommendations"] == []
 
-    assert result["Password_length"]
+    assert result["Password_length"] == 15
     assert result["Contains uppercase"]
     assert result["Contains lowercase"]
     assert result["Contains Numbers"]
