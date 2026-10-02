@@ -32,7 +32,7 @@ def analyze_password(password):
     has_uppercase = any(char.isupper() for char in password)
     has_lowercase = any(char.islower() for char in password)
     has_numbers = any(char.isdigit() for char in password)
-    has_special = any(not char.isalnum() for char in password)
+    has_special = any(not char.isalnum() and not char.isspace() for char in password)
 
     score = 0
     recommendations = []

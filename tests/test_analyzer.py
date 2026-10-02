@@ -52,3 +52,17 @@ def test_password_above_length_boundary():
     result = analyze_password("CyberDra@0034")
     assert result["Password_length"] == 13
     assert "Add at least 12 characters." not in result["recommendations"]
+
+def test_empty_password():
+    result = analyze_password("")
+    assert result["Password_length"] == 0
+    assert result["score"] == 0
+    assert result["strength"] == "WEAK"
+    assert "Add at least 12 characters." in result["recommendations"]
+
+def test_whitespace_only_password():
+    result = analyze_password("            ")
+    assert result["Password_length"] == 12
+    assert not result["Contains Special"]
+    assert result["score"] == 1
+    assert result["strength"] == "WEAK"
