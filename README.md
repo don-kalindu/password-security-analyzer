@@ -58,7 +58,7 @@ git clone https://github.com/don-kalindu/password-security-analyzer.git
 cd password-security-analyzer
 ```
 
-### 2. Create  a Virtual Environment
+### 2. Create a Virtual Environment
 
 #### Windows
 
@@ -99,7 +99,7 @@ python main.py
      PASSWORD SECURITY ANALYZER
 ==================================================
 
-Enter the password to analyze :
+Enter the password to analyze:
 
 Password Analysis
 --------------------------------------------------
@@ -144,14 +144,14 @@ The current test suite includes:
 
 ```text
 password-security-analyzer/
-├── main.py
-├── analyzer.py
-├── common_passwords.txt
-├── tests/
-│   └── test_analyzer.py
-├── requirements-dev.txt
-├── README.md
-└── .gitignore
+|-- main.py
+|-- analyzer.py
+|-- common_passwords.txt
+|-- tests/
+|   `-- test_analyzer.py
+|-- requirements-dev.txt
+|-- README.md
+`-- .gitignore
 ```
 
 ### File Responsibilities
