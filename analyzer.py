@@ -14,13 +14,13 @@ def load_common_passwords():
     clean_passwords = []
 
     for common_password in common_passwords:
-        common_passwords = common_password.strip().lower()
+        common_password = common_password.strip().lower()
+
         if common_password != "":
             clean_passwords.append(common_password)
-
     return clean_passwords
 
-#simple function experiment
+#analyzing the password security
 def analyze_password(password):
 
     #comparing common passwords
@@ -45,7 +45,7 @@ def analyze_password(password):
         score = score + 1
 
     if has_numbers:
-        score = score +1
+        score = score + 1
 
     if has_special:
         score = score + 1
