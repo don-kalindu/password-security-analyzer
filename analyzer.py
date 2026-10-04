@@ -10,7 +10,7 @@ def load_common_passwords():
         content = file.read()
         common_passwords = content.splitlines()
     
-    #cleaning common_password list and add that into clean_passwrdds list
+    #Load common passwords and clean them up
     clean_passwords = []
 
     for common_password in common_passwords:
@@ -18,6 +18,7 @@ def load_common_passwords():
 
         if common_password != "":
             clean_passwords.append(common_password)
+
     return clean_passwords
 
 #analyzing the password security
@@ -88,14 +89,14 @@ def analyze_password(password):
 
 
     result = {
-    "score": score,
-    "strength": strength,
-    "recommendations": recommendations,
-    "Contains uppercase" : has_uppercase,
-    "Contains lowercase" : has_lowercase,
-    "Contains Numbers" : has_numbers,
-    "Contains Special" : has_special,
-    "Password_length" : len(password)
+        "score": score,
+        "strength": strength,
+        "recommendations": recommendations,
+        "Contains uppercase": has_uppercase,
+        "Contains lowercase": has_lowercase,
+        "Contains Numbers": has_numbers,
+        "Contains Special": has_special,
+        "Password_length": len(password)
     }
 
     return result
