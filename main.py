@@ -5,7 +5,7 @@ print("=" * 50)
 print("     PASSWORD SECURITY ANALYZER")
 print("=" * 50)
 print()
-password = getpass.getpass("Enter the password to analyze : ")
+password = getpass.getpass("Enter the password to analyze: ")
 result = analyze_password(password)
 print()
 print("Password Analysis")
@@ -21,13 +21,12 @@ print(f'{"Score:":<19}{result["score"]}/5')
 print(f'{"Strength:":<19}{result["strength"]}')
 print()
 
-if len(result["recommendations"]) > 0:
-    print("Recommendations:")
+print("Recommendations:")
 
+if len(result["recommendations"]) > 0:
     for recommendation in result["recommendations"]:
-        print("-",recommendation)
+        print("-", recommendation)
 else:
-    print("Recommendations:")
     print("No improvements required.")
 
 print()
